@@ -1,2 +1,3 @@
 # to-do-list
-personal little web-based to-do list app
+
+personal little terminal/maybe GUI for a to-do list app
