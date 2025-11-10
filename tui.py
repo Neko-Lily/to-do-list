@@ -29,9 +29,19 @@ def show_tasks():
 def task_completed():
     show_tasks()
     completed_number = int(input("Enter number of task to be completed: ")) - 1
-    dbhandler.listOfTasks[completed_number].complete()
-    dbhandler.change_to_completed(completed_number)
-
+    if completed_number <= len(dbhandler.listOfTasks):
+        dbhandler.listOfTasks[completed_number].complete()
+        dbhandler.change_to_completed(completed_number)
+    else:
+        print("Your entry is invalid, try entering an available number")
+        task_completed()
 
 def delete_task():
-    pass
+    show_tasks()
+    delete_number = int(input("Enter number of task to delete: ")) -1
+    if delete_number <= len(dbhandler.listOfTasks):
+        dbhandler.delete_task_from_db(delete_number)
+        dbhandler.listOfTasks.pop(delete_number)
+    else:
+        print("Your entry is invalid, try entering an available number")
+        delete_task()
