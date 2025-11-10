@@ -18,9 +18,9 @@ def main():
         # Mark task as completed
         elif choice == '3':
             tui.task_completed()
-        # Remove Task
+        # Delete Task
         elif choice == '4':
-            pass
+            tui.delete_task()
         # Show menu tooltips
         elif choice == 'h':
             tui.show_menu_options()

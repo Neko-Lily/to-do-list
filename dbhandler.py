@@ -57,6 +57,14 @@ def change_to_completed(indice):
     """, (True, task))
     connection.commit()
 
+def delete_task_from_db(indice):
+    task = listOfTasks[indice].task_name
+    cursor.execute("""
+    DELETE FROM tasks 
+    WHERE task = ?;
+    """, (task,))
+    connection.commit()
+
 def quit_program(): 
     connection = sqlite3.connect("todolist.db")
     connection.commit()
